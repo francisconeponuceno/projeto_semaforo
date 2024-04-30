@@ -1,8 +1,29 @@
 const img = document.getElementById('img');
 const buttons = document.getElementById('buttons');
-
-
+let stop = 2
 const trafficlght = ( event) => {
+
+
+    function sleep(ms) {
+        return new Promise((reolve, reject) => {
+            setInterval(() => {
+                reolve(ms);
+            }, ms);
+        })
+    }
+
+    async function trocarCor() {
+        while (stop <=2) {
+            img.src = "img/vermelho.jpg"
+            await sleep(2000);
+            img.src = "img/verde.jpg"
+            await sleep(2000);
+            img.src = "img/amarelo.jpg"
+            await sleep(2000);
+            
+        }
+    }
+
     if (event.target.id == "red") {
         img.src = "img/vermelho.jpg"
 
@@ -13,15 +34,15 @@ const trafficlght = ( event) => {
         img.src = "img/verde.jpg"
 
     } else if (event.target.id == "automatic"){
-        setTimeout(1000)
-        img.src = "img/vermelho.jpg"
-        setTimeout(1000)
-        img.src = "img/amarelo.jpg"
-        setTimeout(1000)
+        trocarCor()
 
     }
     
+    
 }
 
-buttons.addEventListener('click' , trafficlght);
+
+
+buttons.addEventListener('click', trafficlght);
+
 
