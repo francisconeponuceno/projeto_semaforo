@@ -1,6 +1,7 @@
 const img = document.getElementById('img');
 const buttons = document.getElementById('buttons');
 let stop = 2
+
 const trafficlght = ( event) => {
 
 
@@ -20,7 +21,6 @@ const trafficlght = ( event) => {
             await sleep(2000);
             img.src = "img/amarelo.jpg"
             await sleep(2000);
-            
         }
     }
 
